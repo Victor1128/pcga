@@ -1,0 +1,76 @@
+nav {
+  position: fixed;
+  width: 100vw;
+  height: 10vh;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  top: 0;
+  left: 0;
+  background: var(--secondary);
+  overflow-x: scroll;
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  padding: 20px 0;
+  gap: 30px;
+  white-space: nowrap;
+  z-index: 3;
+}
+
+.dropdown-container {
+  position: relative;
+}
+
+.dropdown-trigger {
+  border: none;
+  background: none;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  width: 200px;
+  color: var(--primary);
+  font-size: 16px;
+}
+.dropdown-trigger p {
+  font-weight: bold;
+}
+
+.dropdown-container:before {
+  content: "";
+  position: absolute;
+  height: 2px;
+  width: 0%;
+  bottom: 0;
+  left: 10%;
+  background: var(--primary);
+  transition: width 0.3s ease-in-out;
+}
+
+.dropdown-container:hover:before {
+  width: 80%;
+}
+
+.dropdown-trigger:hover {
+  cursor: pointer;
+}
+
+.dropdown-content {
+  position: fixed;
+  background: var(--secondary);
+  color: var(--primary);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  border-radius: 0 0 4px 4px;
+  padding: 20px 30px;
+  text-align: center;
+  width: 140px;
+  z-index: 4;
+}
+.dropdown-content p {
+  font-size: 12px;
+  white-space: pre-wrap;
+}
+.dropdown-content p:hover {
+  cursor: pointer;
+}
+
+.category-name {
+  white-space: nowrap;
+}/*# sourceMappingURL=Navbar.css.map */
