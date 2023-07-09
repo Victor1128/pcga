@@ -5,86 +5,115 @@ import LandingPage from "./components/LandingPage";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { useState } from "react";
 
-const productCategories = [
-  "Electronics",
-  "Clothing",
-  "Home & Kitchen",
-  "Beauty & Personal Care",
-  "Books",
-  "Sports & Outdoors",
-  "Automotive",
-  "Toys & Games",
-  "Health & Wellness",
-  "Baby & Kids",
-  "Grocery",
-  "Jewelry",
-  "Pets",
-  "Tools & Home Improvement",
-  "Movies & Music",
-  "Office Supplies",
-  "Garden & Outdoor",
-  "Food & Beverages",
-  "Fitness",
-  "Travel",
-  "Art & Craft",
-  "Party Supplies",
-  "Stationery",
-  "Pet Supplies",
-  "Appliances",
-  "Furniture",
-  "Gifts",
-  "Industrial & Scientific",
-  "Hobbies",
-  "Fashion Accessories",
-];
-
-const allProducts = [
-  { title: "Pen" },
-  { title: "Laptop" },
-  { title: "Soap" },
-  { title: "Sunglasses" },
-  { title: "Toothbrush" },
-  { title: "Headphones" },
-  { title: "Umbrella" },
-  { title: "Watch" },
-  { title: "Backpack" },
-  { title: "Smartphone" },
-  { title: "Wallet" },
-  { title: "Coffee maker" },
-  { title: "Bluetooth speaker" },
-  { title: "Portable charger" },
-  { title: "Hairbrush" },
-  { title: "Gaming console" },
-  { title: "Dumbbells" },
-  { title: "Yoga mat" },
-  { title: "Digital camera" },
-  { title: "Air purifier" },
-  { title: "Instant pot" },
-  { title: "Smart thermostat" },
-  { title: "Fitness tracker" },
-  { title: "Resistance bands" },
-  { title: "Cordless vacuum" },
-  { title: "Espresso machine" },
-  { title: "Electric toothbrush" },
-  { title: "Wireless earbuds" },
-  { title: "Food processor" },
-  { title: "Electric kettle" },
-];
+const dataObj = {
+  url: "https://www.amazon.com/",
+  title: "Site name",
+  field: "E-commerce",
+  // categories: productCategories.map((category) => ({
+  // 	title: category,
+  // 	subcategories: [`1 - ${category}`, `2 - ${category}`, `3 - ${category}`].map(
+  // 		(subcategory) => ({
+  // 			title: subcategory,
+  // 			products: allProducts.map(({ title }) => ({
+  // 				title: title + " " + subcategory,
+  // 			})),
+  // 		})
+  // 	),
+  // })),
+  categories: [
+    {
+      title: "other",
+      subcategories: [
+        {
+          title: "other",
+          products: [
+            {
+              title: "Soul Music",
+            },
+            {
+              title: "After Dark Grooves",
+            },
+            {
+              title: "Music Related",
+            },
+            {
+              title: "Slow Jams",
+            },
+            {
+              title: "Music Fan",
+            },
+            {
+              title: "Soulful House",
+            },
+            {
+              title: "House Music",
+            },
+          ],
+        },
+      ],
+    },
+    {
+      title: "public utilities and public sector related services",
+      subcategories: [
+        {
+          title: "telecommunications media services",
+          products: [
+            {
+              title: "Radio Music",
+            },
+            {
+              title: "Radio Stations",
+            },
+          ],
+        },
+      ],
+    },
+    {
+      title:
+        "domestic appliances and supplies and consumer electronic products",
+      subcategories: [
+        {
+          title: "consumer electronics",
+          products: [
+            {
+              title: "Tv Tuning",
+            },
+          ],
+        },
+      ],
+    },
+    {
+      title: "education and training services",
+      subcategories: [
+        {
+          title: "specialized educational services",
+          products: [
+            {
+              title: "Dance & Music",
+            },
+          ],
+        },
+      ],
+    },
+  ],
+};
 
 function App() {
-  const [data, setData] = useState("");
+  const [data, setData] = useState(dataObj);
 
   // aici ar trebui request-ul catre server
   const handleRequest = async (url) => {
     console.log(url);
-    console.log("http://localhost:5000/getd/" + url);
-    // const response =
-    const response = await fetch("http://localhost:5000/getd/" + url).then(
-      (response) => response.json()
-    );
-    // const data1 = await response.json();
-    // setData(data1);
-    setData(response);
+    // const response = await fetch('http://localhost:5000/website', {
+    //   headers: {
+    //     'Content-Type': 'application/json'
+    //   },
+    //   body: JSON.stringify({
+    //     url
+    // })
+    // });
+    // const data = await response.json();
+    // setData(data);
   };
 
   return (
